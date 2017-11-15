@@ -14,15 +14,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
   step3456Button.addEventListener('click', function() {
     $.ajax({
-      url: 'http://first-ajax-api.herokuapp.com/pong',
+      url: 'http://first-ajax-api.herokuapp.com/ping',
       method: 'GET',
       dataType: 'text'
     }).done( function(response) {
       console.log('The response was: ' + response);
       section3456.append(response);
     }).fail( function() {
+      console.log("Request failed!");
       section3456.append("Sorry, your request failed!");
     }).always( function() {
+      console.log("The request took place!");
       section3456.append("Hey the request finished!")
     });
   });

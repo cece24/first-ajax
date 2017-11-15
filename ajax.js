@@ -14,12 +14,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
   step3456Button.addEventListener('click', function() {
     $.ajax({
-      url: 'http://first-ajax-api.herokuapp.com/ping',
+      url: 'http://first-ajax-api.herokuapp.com/pong',
       method: 'GET',
       dataType: 'text'
     }).done( function(response) {
       console.log('The response was: ' + response);
       section3456.append(response);
+    }).fail( function() {
+      section3456.append("Sorry, your request failed!");
     });
   });
 

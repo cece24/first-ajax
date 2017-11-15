@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
   var section3456 = document.querySelector('#step3456');
   var step7Button = document.querySelector('#step7 > button');
   var section7 = document.querySelector('#step7');
+  var step8Button = document.querySelector('#step8 > button');
+  var section8 = document.querySelector('#step8');
+
 
   step2Button.addEventListener('click', function() {
     $.ajax({
@@ -39,6 +42,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }).done( function(response) {
       section7.append(response);
     })
+  });
+
+  step8Button.addEventListener('click', function() {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/time',
+      method: 'GET',
+      data: {
+        timezone: 'America/Mexico_City'
+      },
+      dataType: 'text'
+    }).done( function(response) {
+      section8.append(response);
+    });
   });
 
 });

@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
   var section7 = document.querySelector('#step7');
   var step8Button = document.querySelector('#step8 > button');
   var section8 = document.querySelector('#step8');
-
+  var step9Button = document.querySelector('#step9 > button');
+  var section9 = document.querySelector('#step9');
+  var list = document.querySelector('#step9-list');
 
   step2Button.addEventListener('click', function() {
     $.ajax({
@@ -54,6 +56,18 @@ document.addEventListener("DOMContentLoaded", function() {
       dataType: 'text'
     }).done( function(response) {
       section8.append(response);
+    });
+  });
+
+  step9Button.addEventListener('click', function() {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/a_car',
+      method: 'GET',
+      dataType: 'html'
+    }).done( function(response) {
+      var newItem = document.createElement('li');
+      newItem.innerHTML = response;
+      list.append(newItem);
     });
   });
 

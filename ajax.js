@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
-  var step2Button = document.querySelector('#step12 > button');
   /* Your code goes here */
+  var step2Button = document.querySelector('#step12 > button');
+  var step3456Button = document.querySelector('#step3456 > button');
+  var section3456 = document.querySelector('#step3456');
+
   step2Button.addEventListener('click', function() {
     $.ajax({
       url: 'http://first-ajax-api.herokuapp.com/',
@@ -8,5 +11,16 @@ document.addEventListener("DOMContentLoaded", function() {
       dataType: 'text'
     });
   });
-  
+
+  step3456Button.addEventListener('click', function() {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/ping',
+      method: 'GET',
+      dataType: 'text'
+    }).done( function(response) {
+      console.log('The response was: ' + response);
+      section3456.append(response);
+    });
+  });
+
 });

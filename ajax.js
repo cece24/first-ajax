@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
       section3456.append(response);
     }).fail( function() {
       section3456.append("Sorry, your request failed!");
+    }).always( function() {
+      section3456.append("Hey the request finished!")
     });
   });
 

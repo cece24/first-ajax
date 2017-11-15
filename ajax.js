@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
   var step2Button = document.querySelector('#step12 > button');
   var step3456Button = document.querySelector('#step3456 > button');
   var section3456 = document.querySelector('#step3456');
+  var step7Button = document.querySelector('#step7 > button');
+  var section7 = document.querySelector('#step7');
 
   step2Button.addEventListener('click', function() {
     $.ajax({
@@ -27,6 +29,16 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log("The request took place!");
       section3456.append("Hey the request finished!")
     });
+  });
+
+  step7Button.addEventListener('click', function() {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/count',
+      method: 'GET',
+      dataType: 'text'
+    }).done( function(response) {
+      section7.append(response);
+    })
   });
 
 });
